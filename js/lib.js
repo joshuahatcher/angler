@@ -44,6 +44,11 @@
 		tick();
 	};
 
+	/*
+		Fades out an element
+		@el String
+		@speed optional String
+	*/
 	function fadeAut(el, speed) {
 		el.style.opacity = 1;
 
@@ -60,7 +65,9 @@
 
 				if (+el.style.opacity > 0) {
 					(window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-				} 
+				} else {
+					el.style.display = 'none';
+				}
 			};
 		tick();
 	};
