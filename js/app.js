@@ -14,7 +14,9 @@
 			this.current = val;
 		};
 		this.browse = function(update) {
-			this.current = this.current + (update === 1 ? 1 : -1);
+			if (this.pics[this.current + update]) {
+				this.current += update;				
+			}
 		};
 
 	});
