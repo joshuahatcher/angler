@@ -12,23 +12,13 @@
 			</h1>
 			<h3>A Lightweight Photo Inventory App using AngularJS.</h3>
 		</div>
-		<div class="container">
-			<div class="thumb" ng-repeat="pic in gallery.pics">
-				<img ng-src="{{pic.sm}}" ng-click="gallery.show(gallery.pics.indexOf(pic))" />
-			</div>
+		<div class="container" gallery>
 		</div>
 
-		<div class="popup">
-			<div class="prev" ng-click="gallery.browse(-1)"><span>&#x21a9;</span></div>
-			<div class="popup-cont">
-				<img ng-src="{{gallery.pics[gallery.current]['full']}}" />
-			</div>
-			<div class="next" ng-click="gallery.browse(1)"><span>&#x21aa;</span></div>
+		<div class="popup-container" ng-show="gallery.current !== null" popup>
 		</div>
-		<div class="overlay"></div>
 
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
-		<script type="text/javascript" src="js/lib.js"></script>
 	</body>
 </html>

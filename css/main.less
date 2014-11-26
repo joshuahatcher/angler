@@ -46,11 +46,19 @@ h1, h3 {
 		}
 	}
 }
-.popup {
-	.opacity(0);
-	position: fixed;
-	left: 30%;
+.popup-container {
 	z-index: 4;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
+.popup {
+	// .opacity(0);
+	position: fixed;
+	top: 20px;
+	left: 30%;
+	z-index: 5;
 	background: @white;
 	width: 40%;
 	border: 1px solid;
@@ -62,25 +70,27 @@ h1, h3 {
 		.opacity(0);
 		position: absolute;
 		top: 0;
+		background: transparent;
 		width: 50px;
 		height: 100%;
-		padding: 0 5px;
+		border: 0;
 		transition: 0.5s all ease-in-out;
+		text-align: center;
 		cursor: pointer;
+		&:focus {
+			outline: 0;
+		}
 		&:hover {
 			.opacity(1);
 		}
-		span {
-			position: absolute;
-			top: 45%;
+		div {
 			background: @black;
 			width: 40px;
 			height: 40px;
-			padding: 10px 0 0;
+			padding: 12px 0 0;
 			border: 2px solid @gray;
 			border-radius: 50%;
 			color: @white;
-			text-align: center;
 		}
 	}
 	.prev {
@@ -102,13 +112,13 @@ h1, h3 {
 }
 .overlay {
 	.opacity(.5);
-	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 3;
+	z-index: 4;
 	background: @gray;
 	width: 100%;
+	height: 100%;
 	text-align: center;
 }
 

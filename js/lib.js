@@ -1,26 +1,12 @@
+// This file is not currently being used, but it contains some homegrown functions that may be of use later on.
+
 (function(doc) {
 	'use strict';
 
-	var popup = doc.querySelector('.popup'),
-		overlay = doc.querySelector('.overlay');
-
-	setTimeout(init, 300);
-
 	/*
-		Give Angular a few milliseconds to load its content before binding events
-	*/
-	function init() {
-		var imgs = doc.querySelectorAll('img');
-
-		fadeIn(doc.body);
-		addEvent('click', imgs, showPopup);
-		addEvent('click', overlay, closePopup);
-	}
-
-	/*
-		Fades in an element
-		@el String
-		@speed optional String
+	**	Fades in an element
+	**	@el String
+	**	@speed optional String
 	*/
 	// Inspired by YouMightNotNeedJQuery.com
 	function fadeIn(el, speed) {
@@ -45,9 +31,9 @@
 	};
 
 	/*
-		Fades out an element
-		@el String
-		@speed optional String
+	**	Fades out an element
+	**	@el String
+	**	@speed optional String
 	*/
 	function fadeAut(el, speed) {
 		el.style.opacity = 1;
@@ -73,9 +59,9 @@
 	};
 
 	/*
-		Adds an event to a target, cross-browser compatible
-		@ev String
-		@els
+	**	Adds an event to a target, cross-browser compatible
+	**	@ev String
+	**	@els
 	*/
 	function addEvent(ev, els, func) {
 		var x, len, el;
@@ -96,32 +82,10 @@
 	};
 
 	/*
-		Determines whether an input is an array
+	**	Determines whether an input is an array
 	*/
 	function isArray(input) {
 		return Object.prototype.toString.call(input) === ('[object NodeList]' || '[object Array]');
 	};
-
-	/*
-		Shows popup with correct contents
-	*/
-	function showPopup(e) {
-		overlay.style.height = window.innerHeight + 'px';
-		overlay.style.display = 'block';
-		popup.style.display = 'block';
-
-		popup.style.top = '20px';
-		fadeIn(popup);
-	};
-
-	/*
-		Closes popup
-	*/
-	function closePopup(e) {
-		var target = e.target || e.srcElement;
-
-		target.style.display = 'none';
-		fadeAut(popup)
-	}
 
 }(document));
